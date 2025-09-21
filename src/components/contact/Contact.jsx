@@ -5,11 +5,64 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import { motion } from "motion/react";
+
 export default function Contact() {
+  const arrayOfObject = [
+    { name: "Email", value: "eng.atef.fawzy@gmail.com", mil: "mailto" },
+    { name: "Phone", value: "+1 (123) 456-7890" },
+    { name: "Address", value: "123 Wellness Way, Calm City, CA 90210" },
+  ];
+  const arrayOfLinks = [
+    {
+      link: "https://www.facebook.com/Atef.Fawzy.Khalaf?mibextid=ZbWKwL",
+      icon: <FacebookIcon />,
+      bg: "#BFDBFE ",
+      textColor: "#1E3A8A.",
+      shadow: "#93C5FD",
+    },
+    {
+      link: "https://www.instagram.com/atef.fawzy",
+      icon: <InstagramIcon />,
+      bg: "#F3E8FF ",
+      textColor: "#3B0764.",
+      shadow: "#C084FC",
+    },
+    {
+      link: "https://wa.me/qr/KSHI43LCU4DJO1",
+      icon: <WhatsAppIcon />,
+      bg: "#DCFCE7 ",
+      textColor: "#065F46.",
+      shadow: "#86EFAC",
+    },
+    {
+      link: "https://www.linkedin.com/in/atef-fawzy-b664b630a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      icon: <LinkedInIcon />,
+      bg: "#BFDBFE ",
+      textColor: "#1E3A8A..",
+      shadow: "#93C5FD",
+    },
+  ];
+  // Animation For Motion
+  const parent = { visible: { transition: { staggerChildren: 0.5 } } };
+  const child = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: { opacity: 1, scale: 1.2 },
+  };
+
   return (
-    <section
+    <motion.section
+      layout
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.8,
+        type: "tween",
+        ease: "easeInOut",
+        delay: 0.2,
+      }}
       id="Contact"
-      className="container mx-auto mt:10  text-[#00373E] py-25"
+      className="container mx-auto text-[#00373E]"
     >
       <div className="text-center space-y-9 ">
         <h1 className="text-xl md:text-2xl lg:text-4xl font-extrabold tracking-wider ">
@@ -27,57 +80,45 @@ export default function Contact() {
           <h1 className="text-xl md:text-2xl lg:text-4xl font-extrabold tracking-wider">
             Contact Details:
           </h1>
-          <a href="mailto:eng.atef.fawzy@gmail.com" target="blank">
-            <span className="text-xl md:text-2xl font-bold">Email:</span>{" "}
-            <span className="text-lg md:text-xl ">
-              eng.atef.fawzy@gmail.com
-            </span>
-          </a>
-          <span className="block">
-            <span className="text-xl md:text-2xl font-bold">Phone:</span>{" "}
-            <span className="text-lg md:text-xl">+1 (123) 456-7890</span>
-          </span>
-
-          <span className="block">
-            <span className="text-xl md:text-2xl font-bold">Address:</span>{" "}
-            <span className="text-lg md:text-xl">
-              123 Wellness Way, Calm City, CA 90210
-            </span>
-          </span>
-          <div className="flex gap-x-5 text-xl">
-            <a
-              href="https://www.facebook.com/Atef.Fawzy.Khalaf?mibextid=ZbWKwL"
-              className="p-2 rounded-full bg-blue-100 text-center  hover:shadow-blue-300 hover:text-blue-900 duration-300 ease-out cursor-pointer scale-120 hover:shadow-xl"
-              target="blank"
-            >
-              <FacebookIcon />
-            </a>
-            <a
-              target="blank"
-              href="https://www.instagram.com/atef.fawzy"
-              className="p-2 rounded-full bg-purple-100 text-center  hover:shadow-purple-300 hover:text-purple-900 duration-300 ease-out cursor-pointer scale-120 hover:shadow-xl"
-            >
-              <InstagramIcon />
-            </a>
-            <a
-              target="blank"
-              href="https://wa.me/qr/KSHI43LCU4DJO1"
-              className="p-2 rounded-full bg-green-100 text-center 
-               hover:shadow-green-300 hover:text-green-900 duration-300 ease-out cursor-pointer scale-120 hover:shadow-xl
-              "
-            >
-              <WhatsAppIcon />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/atef-fawzy-b664b630a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-              className="p-2 rounded-full bg-blue-200 text-center
-            hover:shadow-blue-300 hover:text-blue-900 duration-300 ease-out cursor-pointer scale-120 hover:shadow-xl
-            "
-              target="blank"
-            >
-              <LinkedInIcon />
-            </a>
-          </div>
+          {arrayOfObject.map((e, index) => (
+            <div key={index}>
+              <h1 className="text-xl md:text-2xl font-bold inline">
+                {e.name}:{" "}
+              </h1>
+              <span className="text-lg md:text-xl cursor-pointer">
+                {e.value}
+              </span>
+            </div>
+          ))}
+          <motion.div
+            variants={parent}
+            initial="hidden"
+            whileInView="visible"
+            className="flex gap-x-5 text-xl"
+          >
+            {arrayOfLinks.map((e, index) => (
+              <motion.a
+                variants={child}
+                viewport={{ once: false }}
+                transition={{ type: "spring", stiffness: 200 }}
+                whileTap={{ scale: 0.98 }}
+                key={index}
+                whileHover={{
+                  scale: 1.13,
+                  boxShadow: `0px 10px 30px ${e.shadow}`,
+                  color: e.textColor,
+                }}
+                style={{
+                  backgroundColor: e.bg,
+                }}
+                href={e.link}
+                className="p-2 rounded-full text-center cursor-pointer "
+                target="blank"
+              >
+                {e.icon}
+              </motion.a>
+            ))}
+          </motion.div>
           <p className="text-lg md:text-xl">
             We typically respond within 12 hours.
           </p>
@@ -91,7 +132,7 @@ export default function Contact() {
           {/*Box Form */}
           <Box
             component="form"
-            sx={{ "& > :not(style)": { m: 3, width: "100%"  ,} }}
+            sx={{ "& > :not(style)": { m: 3, width: "100%" } }}
             noValidate
             autoComplete="off"
             className="flex flex-col w-full items-center justify-center bg-[#FDF7F1] px-5 rounded-4xl"
@@ -108,6 +149,6 @@ export default function Contact() {
           </Box>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Therapists.css";
+import { motion } from "framer-motion";
 // Images
 import Sonson from "../../assets/therapist/sonson.png";
 import Vector from "../../assets/therapist/Vector.png";
@@ -35,13 +36,30 @@ export default function Therapists() {
   ];
   const [currentIndex, setCurrentIndex] = useState(araay[0]);
   const araayOfImages = [Sonson, Vector, baza, Partners, medium, notion];
+  // Motion
+
+  const parent = { visible: { transition: { staggerChildren: 0.5 } } };
+  const child = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: { opacity: 1, scale: 1.2 },
+  };
   return (
     <>
       <section
         id="Therapists"
-        className="container mx-auto py-10 md:py-20  h-full flex md:flex-row flex-col justify-evenly w-full gap-10 "
+        className="container mx-auto mb-25 h-full flex md:flex-row flex-col justify-evenly w-full gap-10 "
       >
-        <div className=" space-y-6 flex flex-col justify-evenly  md:max-w-1/2 w-full md:order-1 order-2 px-5">
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.8,
+            type: "tween",
+            ease: "linear",
+            delay: 0.2,
+          }}
+          className=" space-y-6 flex flex-col justify-evenly  md:max-w-1/2 w-full md:order-1 order-2 px-5"
+        >
           <h1 className="font-bold text-xl md:text-3xl lg:text-4xl text-[#00373E] ">
             What Our Clients Are Saying
           </h1>
@@ -49,28 +67,50 @@ export default function Therapists() {
             Positive experiences from users who have benefited from therapy or
             wellness programs.
           </p>
-          <div className="flex items-center ">
+          <motion.div
+            variants={parent}
+            initial="hidden"
+            whileInView="visible"
+            className="flex items-center "
+          >
             {araay.map((e, index) => {
               return (
-                <button
+                <motion.button
+                  variants={child}
+                  viewport={{ once: false }}
+                  transition={{ type: "spring", stiffness: 500 }}
+                  whileHover={{
+                    scale: 1.03,
+                    boxShadow: "0px 10px 30px rgba(0,0,0,0.12)",
+                  }}
+                  whileTap={{ scale: 0.98 }}
                   style={{ backgroundColor: e.btnbg, color: e.btncolor }}
                   key={index}
                   onClick={() => setCurrentIndex(e)}
-                  className={` text-xl cursor-pointer hover:shadow-md duration-300 ease-out hover:scale-110`}
+                  className={` text-xl cursor-pointer
+                    `}
                 >
                   {e.btn}
-                </button>
+                </motion.button>
               );
             })}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
         <div className="relative md:w-1/2 w-full md:order-2 order-1">
-          <div
+          <motion.div
+            initial={{ opacity: 0, x: 200 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.8,
+              type: "tween",
+              ease: "linear",
+              delay: 0.2,
+            }}
             style={{
               backgroundColor: currentIndex.background,
               color: currentIndex.colortext,
             }}
-            className="flex flex-col justify-evenly rounded-3xl p-10 gap-8 z-5 left-16 max-w-2xl min-h-90 max-h-90 shadow-md duration-300 ease-out"
+            className="flex flex-col justify-evenly rounded-3xl p-10 gap-8 z-5 left-16 max-w-2xl min-h-90 max-h-90 shadow-md "
           >
             <p className="text-lg md:text-xl wrap-break-word tracking-wide">
               {currentIndex.description}
@@ -78,21 +118,33 @@ export default function Therapists() {
             <span className="text-lg md:text-xl wrap-break-word font-bold">
               {currentIndex.span}
             </span>
-          </div>
+          </motion.div>
         </div>
       </section>
-      <div className="flex justify-between bg-white p-6 rounded-4xl">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.1 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.8,
+          type: "tween",
+          ease: "linear",
+          delay: 0.2,
+        }}
+        className="flex justify-between bg-white p-6 rounded-4xl"
+      >
         {araayOfImages.map((image, index) => {
           return (
-            <img
+            <motion.img
+              whileHover={{ scale: 1.2 }}
+              transition={{ delay: 0.1, duration: 0.3 }}
               key={index}
               src={image}
               alt="image"
-              className="md:max-w-[6rem] max-w-[2.8rem] object-contain lg:max-w-[9rem] hover:scale-110 duration-300 ease-out cursor-pointer "
+              className="md:max-w-[6rem] max-w-[2.8rem] object-contain lg:max-w-[9rem]  cursor-pointer "
             />
           );
         })}
-      </div>
+      </motion.div>
     </>
   );
 }

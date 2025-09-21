@@ -40,8 +40,4 @@
   transform: translateX(0);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-/* a:hover {
-  border-bottom: 2px solid #16048a;
-  color: #16048a;
-  transition: all 0.3s ease-in-out;
-} */
+

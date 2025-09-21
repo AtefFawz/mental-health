@@ -12,7 +12,10 @@ import Footer from "./pages/Footer";
 function App() {
   return (
     <>
-      <div className="container mx-auto px-1">
+      <div
+        className="container mx-auto px-2 md:space-y-25  space-y-15
+      flex justify-around flex-col overflow-hidden"
+      >
         <Navbar />
         <Home />
         <About />

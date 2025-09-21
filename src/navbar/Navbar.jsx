@@ -3,7 +3,7 @@ import "./navbar.css";
 import DensityMediumIcon from "@mui/icons-material/DensityMedium";
 import CloseIcon from "@mui/icons-material/Close";
 export default function Navbar() {
-  // Lojic for Navbar
+  // Logic for Navbar
   const [active, setActive] = useState("Home");
 
   useEffect(() => {
@@ -75,7 +75,7 @@ export default function Navbar() {
       <div className="hidden md:block px-5">
         <header className="flex flex-row justify-between max-w-full gap-x-5 lg:gap-x-10 items-center  ">
           <nav className="flex flex-row justify-around min-w-fit gap-x-3 lg:gap-x-16 flex-none">
-            {extract}
+            {extract} 
           </nav>
           <h1 className="shrink text-2xl lg-text-3xl font-extrabold">Solus</h1>
           <nav className="flex flex-row justify-evenly min-w-fit flex-none gap-x-3 lg:gap-x-16  ">
