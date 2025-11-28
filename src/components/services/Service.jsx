@@ -48,7 +48,7 @@ export default function Service() {
               }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "tween", ease: "easeInOut", duration: 0.3 }}
-              className="cursor-pointer hover:shadow-[#00373E] bg-transparent  rounded-3xl md:px-7 md:py-3 px-5 py-2  font-bold border-1 border-[#00373E] max-w-36 hover:shadow-md
+              className="cursor-pointer hover:shadow-[#00373E] bg-transparent  rounded-3xl md:px-7 md:py-3 px-5 py-2  font-bold border-1 border-[#00373E] max-w-36 hover:shadow-md text-nowrap
               "
             >
               Learn more
@@ -86,7 +86,7 @@ export default function Service() {
               ease: "easeInOut",
             }}
             whileTap={{ scale: 0.98 }}
-            className=" bg-transparent text-[#00373E] rounded-3xl md:px-7 md:py-3 px-5 py-2 font-bold border-1 border-[#00373E] max-w-36 hover:shadow-md hover:shadow-[#00373E] cursor-pointer  "
+            className=" bg-transparent text-[#00373E] rounded-3xl md:px-7 md:py-3 px-5 py-2 font-bold border-1 border-[#00373E] max-w-36 hover:shadow-md hover:shadow-[#00373E] cursor-pointer text-nowrap "
           >
             Learn more
           </motion.button>
@@ -116,7 +116,7 @@ export default function Service() {
             Our wellness coaches support you in creating sustainable routines
             for mental, emotional, and physical well-being.
           </p>
-          <button className="hover:scale-110 bg-transparent text-[#00373E] rounded-3xl md:px-7 md:py-3 px-5 py-2  font-bold border-1 border-[#00373E] max-w-36 hover:shadow-md hover:shadow-[#00373E] hover:text-white duration-300 ease-out cursor-pointer hover:bg-[#00373E] ">
+          <button className="hover:scale-110 bg-transparent text-[#00373E] rounded-3xl md:px-7 md:py-3 px-5 py-2  font-bold border-1 border-[#00373E] max-w-36 hover:shadow-md hover:shadow-[#00373E] hover:text-white duration-300 ease-out cursor-pointer hover:bg-[#00373E] text-nowrap">
             Learn more
           </button>
         </div>

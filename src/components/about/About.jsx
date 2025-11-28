@@ -25,7 +25,7 @@ export default function About() {
             whileInView={{ scale: 1 }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.98 }}
-            className=" bg-[#00373E] text-white rounded-3xl md:px-7 md:py-3 md:my-8 px-5 py-2 my-5 font-bold hover:shadow-md hover:shadow-[#00373E]  cursor-pointer  duration-300 ease-out "
+            className=" bg-[#00373E] text-white rounded-3xl md:px-7 md:py-3 md:my-8 px-5 py-2 my-5 font-bold hover:shadow-md hover:shadow-[#00373E]  cursor-pointer  duration-300 ease-out text-nowrap"
           >
             Find a Therapist
           </motion.button>

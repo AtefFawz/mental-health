@@ -10,8 +10,8 @@ import { motion } from "motion/react";
 export default function Contact() {
   const arrayOfObject = [
     { name: "Email", value: "eng.atef.fawzy@gmail.com", mil: "mailto" },
-    { name: "Phone", value: "+1 (123) 456-7890" },
-    { name: "Address", value: "123 Wellness Way, Calm City, CA 90210" },
+    { name: "Phone", value: "01061293751" },
+    { name: "Address", value: "Alexandria" },
   ];
   const arrayOfLinks = [
     {

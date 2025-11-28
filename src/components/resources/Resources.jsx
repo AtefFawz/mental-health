@@ -1,4 +1,4 @@
-import { motion, scale } from "framer-motion";
+import { motion } from "framer-motion";
 export default function Resources() {
   const arrayOfResources = [
     {
@@ -79,7 +79,7 @@ export default function Resources() {
             <p className="text-lg md:text-xl">{resource.description}</p>
             <motion.button
               whileTap={{ scale: 0.93 }}
-              className="py-4 px-5 rounded-4xl md:w-50 w-40 font-extrabold text-xl cursor-pointer hover:shadow-md duration-300 ease-out hover:scale-110"
+              className="py-4 px-5 rounded-4xl md:w-50 w-40 font-extrabold text-xl cursor-pointer hover:shadow-md duration-300 ease-out hover:scale-110 text-nowrap"
               style={{
                 backgroundColor: resource.bg_btn,
                 color: resource.color_btn,

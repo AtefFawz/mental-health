@@ -1,13 +1,12 @@
 import { motion } from "framer-motion";
 
 export default function FillEffectWrapper({
-  children, // محتوى الزرار أو أي عنصر جوه
-  duration = 2, // مدة الأنيميشن
-  direction = "left", // اتجاه الملئ: left, right, top, bottom
-  gradient = "linear-gradient(90deg, #ff6a00, #ee0979)", // ألوان التدرج
-  borderRadius = "10px", // تدوير الحواف
+  children,
+  duration = 2,
+  direction = "left",
+  gradient = "linear-gradient(90deg, #ff6a00, #ee0979)",
+  borderRadius = "10px",
 }) {
-  // نحدد الـ style حسب الاتجاه
   let initial,
     animate,
     style = {};
@@ -24,7 +23,6 @@ export default function FillEffectWrapper({
 
   return (
     <div style={{ position: "relative", display: "inline-block" }}>
-      {/* العنصر اللي هتحوطه */}
       <div
         style={{
           position: "relative",
@@ -34,7 +32,6 @@ export default function FillEffectWrapper({
         {children}
       </div>
 
-      {/* الخلفية المتحركة */}
       <motion.div
         initial={initial}
         animate={animate}

@@ -20,7 +20,7 @@ export default function Faq() {
       <h1 className="text-xl md:text-2xl lg:text-3xl font-extrabold tracking-wider lg:my-9 my-5">
         Frequently Asked Questions
       </h1>
-      <div className="flex md:flex-row flex-col  gap-5 lg:gap-10">
+      <div className="flex md:flex-row flex-col gap-5 lg:gap-10">
         <div className="flex flex-col justify-around gap-x-6 w-full md:w-1/2">
           <p className="text-lg md:text-xl ">
             {" "}
