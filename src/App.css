@@ -1,12 +1,8 @@
 #root {
   margin: 0 auto;
-  background-color: #D5D5D5;
+  background-color: #d5d5d5;
 }
-html{
+html {
   scroll-behavior: smooth;
-  transition: all 1s ease-in-out;
-  
-}
-button{
-  text-decoration:nowrap;
+  transition: all 0.8s ease-in-out;
 }

@@ -29,7 +29,7 @@ export default function Contact() {
       shadow: "#C084FC",
     },
     {
-      link: "https://wa.me/qr/KSHI43LCU4DJO1",
+      link: "https://wa.me/qr/KSHI43LCU4DJO1 ",
       icon: <WhatsAppIcon />,
       bg: "#DCFCE7 ",
       textColor: "#065F46.",
